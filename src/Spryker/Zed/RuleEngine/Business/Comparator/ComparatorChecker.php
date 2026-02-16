@@ -43,7 +43,7 @@ class ComparatorChecker implements ComparatorCheckerInterface
     }
 
     /**
-     * @return list<string>
+     * @return array<string>
      */
     public function getCompoundComparatorExpressions(): array
     {

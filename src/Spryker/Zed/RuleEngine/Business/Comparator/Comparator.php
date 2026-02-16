@@ -61,7 +61,7 @@ class Comparator implements ComparatorInterface
     }
 
     /**
-     * @param list<string> $withTypes
+     * @param array<string> $withTypes
      * @param \Spryker\Zed\RuleEngine\Business\Comparator\Operator\CompareOperatorInterface $operator
      *
      * @throws \Spryker\Zed\RuleEngine\Business\Exception\CompareOperatorException
@@ -84,7 +84,7 @@ class Comparator implements ComparatorInterface
     }
 
     /**
-     * @param list<string> $withTypes
+     * @param array<string> $withTypes
      * @param \Spryker\Zed\RuleEngine\Business\Comparator\Operator\CompareOperatorInterface $comparator
      *
      * @return bool

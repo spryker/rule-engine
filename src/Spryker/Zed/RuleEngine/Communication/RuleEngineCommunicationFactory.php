@@ -11,7 +11,6 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
 
 /**
  * @method \Spryker\Zed\RuleEngine\RuleEngineConfig getConfig()
- * @method \Spryker\Zed\RuleEngine\Persistence\RuleEngineRepositoryInterface getRepository()
  * @method \Spryker\Zed\RuleEngine\Business\RuleEngineFacadeInterface getFacade()
  */
 class RuleEngineCommunicationFactory extends AbstractCommunicationFactory
