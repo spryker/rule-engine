@@ -30,10 +30,6 @@ class ClauseValidator implements ClauseValidatorInterface
      */
     protected MetaDataProviderInterface $metaDataProvider;
 
-    /**
-     * @param \Spryker\Zed\RuleEngine\Business\Comparator\ComparatorCheckerInterface $comparatorChecker
-     * @param \Spryker\Zed\RuleEngine\Business\Specification\MetaData\MetaDataProviderInterface $metaDataProvider
-     */
     public function __construct(
         ComparatorCheckerInterface $comparatorChecker,
         MetaDataProviderInterface $metaDataProvider
@@ -42,12 +38,6 @@ class ClauseValidator implements ClauseValidatorInterface
         $this->metaDataProvider = $metaDataProvider;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\RuleSpecificationProviderPluginInterface $ruleSpecificationProviderPlugin
-     *
-     * @return void
-     */
     public function validateClause(
         RuleEngineClauseTransfer $ruleEngineClauseTransfer,
         RuleSpecificationProviderPluginInterface $ruleSpecificationProviderPlugin
@@ -75,12 +65,6 @@ class ClauseValidator implements ClauseValidatorInterface
         return $this->comparatorChecker->isValidComparatorValue($ruleEngineClauseTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\RuleSpecificationProviderPluginInterface $ruleSpecificationProviderPlugin
-     *
-     * @return void
-     */
     protected function validateField(
         RuleEngineClauseTransfer $ruleEngineClauseTransfer,
         RuleSpecificationProviderPluginInterface $ruleSpecificationProviderPlugin

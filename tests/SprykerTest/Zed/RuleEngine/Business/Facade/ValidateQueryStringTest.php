@@ -69,9 +69,6 @@ class ValidateQueryStringTest extends Unit
      */
     protected RuleEngineBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -81,9 +78,6 @@ class ValidateQueryStringTest extends Unit
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnEmptyErrorCollectionWhenQueryStringIsValid(): void
     {
         // Arrange
@@ -163,17 +157,11 @@ class ValidateQueryStringTest extends Unit
         ];
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\RuleSpecificationProviderPluginInterface
-     */
     protected function createCollectorRuleSpecificationProviderPlugin(): RuleSpecificationProviderPluginInterface
     {
         return new TestCollectorRuleSpecificationProviderPlugin($this->createRulePlugin());
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\CollectorRulePluginInterface
-     */
     protected function createRulePlugin(): CollectorRulePluginInterface
     {
         return new class () implements CollectorRulePluginInterface {
@@ -188,9 +176,6 @@ class ValidateQueryStringTest extends Unit
                 return [];
             }
 
-            /**
-             * @return string
-             */
             public function getFieldName(): string
             {
                 return 'test-field';

@@ -17,12 +17,6 @@ class DoesNotContainCompareOperator extends AbstractCompareOperator
      */
     protected const EXPRESSION = 'does not contain';
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     * @param mixed $withValue
-     *
-     * @return bool
-     */
     public function compare(RuleEngineClauseTransfer $ruleEngineClauseTransfer, mixed $withValue): bool
     {
         if (!$this->isValidValue($withValue)) {

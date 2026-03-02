@@ -27,9 +27,6 @@ use Spryker\Zed\RuleEngine\Business\Exception\CompareOperatorException;
  */
 class NotEqualCompareOperatorTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testAcceptShouldReturnTrueWhenNotEaualExpressionProvided(): void
     {
         // Arrange
@@ -42,9 +39,6 @@ class NotEqualCompareOperatorTest extends Unit
         $this->assertTrue($isAccepted);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnTrueWhenClauseValueIsNotEqualToProvidedValue(): void
     {
         // Arrange
@@ -57,9 +51,6 @@ class NotEqualCompareOperatorTest extends Unit
         $this->assertTrue($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenClauseValueIsEqualToProvidedValue(): void
     {
         // Arrange
@@ -72,9 +63,6 @@ class NotEqualCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareWhenNonNumericValueUsedShouldThrowException(): void
     {
         // Assert
@@ -87,9 +75,6 @@ class NotEqualCompareOperatorTest extends Unit
         $this->createNotEqualCompareOperator()->compare($ruleEngineClauseTransfer, []);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Arrange
@@ -102,9 +87,6 @@ class NotEqualCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testIsValueValidShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Act
@@ -114,9 +96,6 @@ class NotEqualCompareOperatorTest extends Unit
         $this->assertFalse($isValueValid);
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Comparator\Operator\NotEqualCompareOperator
-     */
     protected function createNotEqualCompareOperator(): NotEqualCompareOperator
     {
         return new NotEqualCompareOperator();

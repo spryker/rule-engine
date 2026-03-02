@@ -48,9 +48,6 @@ class IsSatisfiedByTest extends Unit
      */
     protected RuleEngineBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -60,9 +57,6 @@ class IsSatisfiedByTest extends Unit
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsTrueAccordingToProvidedQueryString(): void
     {
         // Arrange
@@ -84,9 +78,6 @@ class IsSatisfiedByTest extends Unit
         $this->assertTrue($result);
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsTrueAccordingToProvidedQueryStringWithOrExpression(): void
     {
         // Arrange
@@ -108,9 +99,6 @@ class IsSatisfiedByTest extends Unit
         $this->assertTrue($result);
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsTrueAccordingToProvidedQueryStringWithAndExpression(): void
     {
         // Arrange
@@ -132,9 +120,6 @@ class IsSatisfiedByTest extends Unit
         $this->assertTrue($result);
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsFalseWhenItemNotSatisfiesQuery(): void
     {
         // Arrange
@@ -156,34 +141,19 @@ class IsSatisfiedByTest extends Unit
         $this->assertFalse($result);
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\RuleSpecificationProviderPluginInterface
-     */
     protected function createDecisionRuleSpecificationProviderPlugin(): RuleSpecificationProviderPluginInterface
     {
         return new TestDecisionRuleSpecificationProviderPlugin($this->createDecisionRulePlugin());
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\DecisionRulePluginInterface
-     */
     protected function createDecisionRulePlugin(): DecisionRulePluginInterface
     {
         return new class () implements DecisionRulePluginInterface {
-            /**
-             * @param \Spryker\Shared\Kernel\Transfer\TransferInterface $satisfyingTransfer
-             * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-             *
-             * @return bool
-             */
             public function isSatisfiedBy(TransferInterface $satisfyingTransfer, RuleEngineClauseTransfer $ruleEngineClauseTransfer): bool
             {
                 return $satisfyingTransfer->getTestField() === $ruleEngineClauseTransfer->getValue();
             }
 
-            /**
-             * @return string
-             */
             public function getFieldName(): string
             {
                 return 'test-field';

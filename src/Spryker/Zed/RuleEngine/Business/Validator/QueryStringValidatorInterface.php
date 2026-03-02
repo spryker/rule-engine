@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\RuleEngineQueryStringValidationResponseTransfer;
 
 interface QueryStringValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineQueryStringValidationRequestTransfer $ruleEngineQueryStringValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\RuleEngineQueryStringValidationResponseTransfer
-     */
     public function validate(
         RuleEngineQueryStringValidationRequestTransfer $ruleEngineQueryStringValidationRequestTransfer
     ): RuleEngineQueryStringValidationResponseTransfer;

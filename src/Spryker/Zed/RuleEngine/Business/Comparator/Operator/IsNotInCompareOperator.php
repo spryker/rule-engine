@@ -22,12 +22,6 @@ class IsNotInCompareOperator extends AbstractCompareOperator
      */
     protected const ALLOW_EMPTY_VALUE = true;
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     * @param mixed $withValue
-     *
-     * @return bool
-     */
     public function compare(RuleEngineClauseTransfer $ruleEngineClauseTransfer, mixed $withValue): bool
     {
         if (!$this->isValidValue($withValue)) {

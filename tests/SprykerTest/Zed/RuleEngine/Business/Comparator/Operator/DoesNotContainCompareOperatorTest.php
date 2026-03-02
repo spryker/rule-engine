@@ -27,9 +27,6 @@ use Spryker\Zed\RuleEngine\Business\Exception\CompareOperatorException;
  */
 class DoesNotContainCompareOperatorTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testAcceptShouldReturnTrueWhenDoesNotContainExpressionProvided(): void
     {
         // Arrange
@@ -42,9 +39,6 @@ class DoesNotContainCompareOperatorTest extends Unit
         $this->assertTrue($isAccepted);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnTrueWhenValueNotExistingInClause(): void
     {
         // Arrange
@@ -57,9 +51,6 @@ class DoesNotContainCompareOperatorTest extends Unit
         $this->assertTrue($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenValueExistingInClause(): void
     {
         // Arrange
@@ -72,9 +63,6 @@ class DoesNotContainCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldThrowExceptionWhenNonScalarValueUsed(): void
     {
         // Assert
@@ -87,9 +75,6 @@ class DoesNotContainCompareOperatorTest extends Unit
         $this->createDoesNotContainCompareOperator()->compare($ruleEngineClauseTransfer, []);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Arrange
@@ -102,9 +87,6 @@ class DoesNotContainCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testIsValueValidShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Act
@@ -114,9 +96,6 @@ class DoesNotContainCompareOperatorTest extends Unit
         $this->assertFalse($isValueValid);
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Comparator\Operator\DoesNotContainCompareOperator
-     */
     protected function createDoesNotContainCompareOperator(): DoesNotContainCompareOperator
     {
         return new DoesNotContainCompareOperator();

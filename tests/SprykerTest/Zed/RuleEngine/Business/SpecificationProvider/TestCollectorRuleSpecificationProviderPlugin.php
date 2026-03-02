@@ -32,57 +32,31 @@ class TestCollectorRuleSpecificationProviderPlugin implements RuleSpecificationP
      */
     protected CollectorRulePluginInterface $rulePlugin;
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\CollectorRulePluginInterface $rulePlugin
-     */
     public function __construct(CollectorRulePluginInterface $rulePlugin)
     {
         $this->rulePlugin = $rulePlugin;
     }
 
-    /**
-     * @return string
-     */
     public function getDomainName(): string
     {
         return static::TEST_DOMAIN_NAME;
     }
 
-    /**
-     * @return string
-     */
     public function getSpecificationType(): string
     {
         return static::SPECIFICATION_TYPE;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface
-     */
     public function getRuleSpecificationContext(RuleEngineClauseTransfer $ruleEngineClauseTransfer): RuleSpecificationInterface
     {
         return new TestCollectorContext($this->rulePlugin, $ruleEngineClauseTransfer);
     }
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $leftNode
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $rightNode
-     *
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface
-     */
     public function createAnd(RuleSpecificationInterface $leftNode, RuleSpecificationInterface $rightNode): RuleSpecificationInterface
     {
         return new TestCollectorAndSpecification($leftNode, $rightNode);
     }
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $leftNode
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $rightNode
-     *
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface
-     */
     public function createOr(RuleSpecificationInterface $leftNode, RuleSpecificationInterface $rightNode): RuleSpecificationInterface
     {
         return new TestCollectorOrSpecification($leftNode, $rightNode);

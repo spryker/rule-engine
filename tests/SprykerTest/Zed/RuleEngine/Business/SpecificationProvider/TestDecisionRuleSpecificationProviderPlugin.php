@@ -32,57 +32,31 @@ class TestDecisionRuleSpecificationProviderPlugin implements RuleSpecificationPr
      */
     protected DecisionRulePluginInterface $rulePlugin;
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\DecisionRulePluginInterface $rulePlugin
-     */
     public function __construct(DecisionRulePluginInterface $rulePlugin)
     {
         $this->rulePlugin = $rulePlugin;
     }
 
-    /**
-     * @return string
-     */
     public function getDomainName(): string
     {
         return static::TEST_DOMAIN_NAME;
     }
 
-    /**
-     * @return string
-     */
     public function getSpecificationType(): string
     {
         return static::SPECIFICATION_TYPE;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface
-     */
     public function getRuleSpecificationContext(RuleEngineClauseTransfer $ruleEngineClauseTransfer): RuleSpecificationInterface
     {
         return new TestDecisionRuleContext($this->rulePlugin, $ruleEngineClauseTransfer);
     }
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $leftNode
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $rightNode
-     *
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface
-     */
     public function createAnd(RuleSpecificationInterface $leftNode, RuleSpecificationInterface $rightNode): RuleSpecificationInterface
     {
         return new TestDecisionRuleAndSpecification($leftNode, $rightNode);
     }
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $leftNode
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $rightNode
-     *
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface
-     */
     public function createOr(RuleSpecificationInterface $leftNode, RuleSpecificationInterface $rightNode): RuleSpecificationInterface
     {
         return new TestDecisionRuleOrSpecification($leftNode, $rightNode);

@@ -23,10 +23,6 @@ class TestCollectorAndSpecification implements CollectorRuleSpecificationInterfa
      */
     protected RuleSpecificationInterface $rightNode;
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $leftNode
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $rightNode
-     */
     public function __construct(RuleSpecificationInterface $leftNode, RuleSpecificationInterface $rightNode)
     {
         $this->leftNode = $leftNode;

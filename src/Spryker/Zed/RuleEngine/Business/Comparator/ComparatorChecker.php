@@ -61,11 +61,6 @@ class ComparatorChecker implements ComparatorCheckerInterface
         return array_unique(array_merge(...$combinedOperators));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return bool
-     */
     public function isExistingComparator(RuleEngineClauseTransfer $ruleEngineClauseTransfer): bool
     {
         foreach ($this->operators as $operator) {
@@ -77,11 +72,6 @@ class ComparatorChecker implements ComparatorCheckerInterface
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return bool
-     */
     public function isValidComparatorValue(RuleEngineClauseTransfer $ruleEngineClauseTransfer): bool
     {
         foreach ($this->operators as $operator) {
@@ -95,11 +85,6 @@ class ComparatorChecker implements ComparatorCheckerInterface
         return true;
     }
 
-    /**
-     * @param string $token
-     *
-     * @return bool
-     */
     public function isLogicalComparator(string $token): bool
     {
         return in_array($token, static::LOGICAL_COMPARATORS, true);

@@ -27,9 +27,6 @@ use Spryker\Zed\RuleEngine\Business\Exception\CompareOperatorException;
  */
 class GreaterEqualCompareOperatorTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testAcceptShouldReturnTrueWhenGreaterOrEqualExpressionProvided(): void
     {
         // Arrange
@@ -42,9 +39,6 @@ class GreaterEqualCompareOperatorTest extends Unit
         $this->assertTrue($isAccepted);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnTrueWhenProvidedValueIsBiggerThanClauseValue(): void
     {
         // Arrange
@@ -55,9 +49,6 @@ class GreaterEqualCompareOperatorTest extends Unit
         $this->assertTrue($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenProvidedValueIsSmallerThanClauseValue(): void
     {
         // Arrange
@@ -70,9 +61,6 @@ class GreaterEqualCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnTrueWhenClauseValueIsEqual(): void
     {
         // Arrange
@@ -85,9 +73,6 @@ class GreaterEqualCompareOperatorTest extends Unit
         $this->assertTrue($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldThrowExceptionWhenNonNumericValueProvided(): void
     {
         // Assert
@@ -100,9 +85,6 @@ class GreaterEqualCompareOperatorTest extends Unit
         $this->createGreaterEqualCompareOperator()->compare($ruleEngineClauseTransfer, 'as');
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Arrange
@@ -115,9 +97,6 @@ class GreaterEqualCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testIsValueValidShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Act
@@ -127,9 +106,6 @@ class GreaterEqualCompareOperatorTest extends Unit
         $this->assertFalse($isValueValid);
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Comparator\Operator\GreaterEqualCompareOperator
-     */
     protected function createGreaterEqualCompareOperator(): GreaterEqualCompareOperator
     {
         return new GreaterEqualCompareOperator();

@@ -11,12 +11,6 @@ use Generated\Shared\Transfer\RuleEngineClauseTransfer;
 
 interface CompareOperatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     * @param mixed $withValue
-     *
-     * @return bool
-     */
     public function compare(RuleEngineClauseTransfer $ruleEngineClauseTransfer, mixed $withValue): bool;
 
     /**
@@ -28,16 +22,8 @@ interface CompareOperatorInterface
      */
     public function isValidValue(mixed $withValue): bool;
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return bool
-     */
     public function accept(RuleEngineClauseTransfer $ruleEngineClauseTransfer): bool;
 
-    /**
-     * @return string
-     */
     public function getExpression(): string;
 
     /**

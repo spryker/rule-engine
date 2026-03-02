@@ -12,12 +12,6 @@ use Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\RuleSpecific
 
 interface ClauseValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\RuleSpecificationProviderPluginInterface $ruleSpecificationProviderPlugin
-     *
-     * @return void
-     */
     public function validateClause(
         RuleEngineClauseTransfer $ruleEngineClauseTransfer,
         RuleSpecificationProviderPluginInterface $ruleSpecificationProviderPlugin

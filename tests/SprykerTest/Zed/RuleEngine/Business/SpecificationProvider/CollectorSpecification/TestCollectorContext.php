@@ -24,10 +24,6 @@ class TestCollectorContext implements CollectorRuleSpecificationInterface
      */
     protected RuleEngineClauseTransfer $ruleEngineClauseTransfer;
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\CollectorRulePluginInterface $collectorRulePlugin
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     */
     public function __construct(
         CollectorRulePluginInterface $collectorRulePlugin,
         RuleEngineClauseTransfer $ruleEngineClauseTransfer

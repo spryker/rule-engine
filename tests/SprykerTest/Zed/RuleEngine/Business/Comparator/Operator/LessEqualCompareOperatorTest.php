@@ -27,9 +27,6 @@ use Spryker\Zed\RuleEngine\Business\Exception\CompareOperatorException;
  */
 class LessEqualCompareOperatorTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testAcceptShouldReturnTrueWhenLessEqualExpressionProvided(): void
     {
         // Arrange
@@ -42,9 +39,6 @@ class LessEqualCompareOperatorTest extends Unit
         $this->assertTrue($isAccepted);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnTrueWhenProvidedValueIsLessThanClauseValue(): void
     {
         // Arrange
@@ -57,9 +51,6 @@ class LessEqualCompareOperatorTest extends Unit
         $this->assertTrue($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareWhenShouldReturnTrueProvidedValueEqualsClauseClause(): void
     {
         // Arrange
@@ -72,9 +63,6 @@ class LessEqualCompareOperatorTest extends Unit
         $this->assertTrue($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenProvidedValueIsGreaterThanClauseValue(): void
     {
         // Arrange
@@ -87,9 +75,6 @@ class LessEqualCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareWhenNonNumericValueUsedShouldThrowException(): void
     {
         // Assert
@@ -102,9 +87,6 @@ class LessEqualCompareOperatorTest extends Unit
         $this->createLessEqualCompareOperator()->compare($ruleEngineClauseTransfer, 'as');
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Arrange
@@ -117,9 +99,6 @@ class LessEqualCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testIsValueValidShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Act
@@ -129,9 +108,6 @@ class LessEqualCompareOperatorTest extends Unit
         $this->assertFalse($isValueValid);
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Comparator\Operator\LessEqualCompareOperator
-     */
     protected function createLessEqualCompareOperator(): LessEqualCompareOperator
     {
         return new LessEqualCompareOperator();

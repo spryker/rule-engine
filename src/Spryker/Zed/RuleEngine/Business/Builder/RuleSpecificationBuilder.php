@@ -66,13 +66,6 @@ class RuleSpecificationBuilder implements RuleSpecificationBuilderInterface
      */
     protected array $compoundComparatorExpressions = [];
 
-    /**
-     * @param \Spryker\Zed\RuleEngine\Business\Tokenizer\TokenizerInterface $tokenizer
-     * @param \Spryker\Zed\RuleEngine\Business\Resolver\RuleSpecificationProviderResolverInterface $ruleSpecificationProviderResolver
-     * @param \Spryker\Zed\RuleEngine\Business\Comparator\ComparatorCheckerInterface $comparatorChecker
-     * @param \Spryker\Zed\RuleEngine\Business\Validator\ClauseValidatorInterface $clauseValidator
-     * @param \Spryker\Zed\RuleEngine\Business\Specification\MetaData\MetaDataProviderInterface $metaDataProvider
-     */
     public function __construct(
         TokenizerInterface $tokenizer,
         RuleSpecificationProviderResolverInterface $ruleSpecificationProviderResolver,
@@ -87,11 +80,6 @@ class RuleSpecificationBuilder implements RuleSpecificationBuilderInterface
         $this->metaDataProvider = $metaDataProvider;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineSpecificationRequestTransfer $ruleEngineSpecificationRequestTransfer
-     *
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface
-     */
     public function build(RuleEngineSpecificationRequestTransfer $ruleEngineSpecificationRequestTransfer): RuleSpecificationInterface
     {
         $this->ruleSpecificationProviderPlugin = $this->ruleSpecificationProviderResolver->resolveRuleSpecificationProviderPlugin(
@@ -208,14 +196,6 @@ class RuleSpecificationBuilder implements RuleSpecificationBuilderInterface
         return $this->compoundComparatorExpressions;
     }
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $leftNode
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $rightNode
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface|null $compositeNode
-     * @param string|null $logicalComparator
-     *
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface|null
-     */
     protected function createCompositeNode(
         RuleSpecificationInterface $leftNode,
         RuleSpecificationInterface $rightNode,
@@ -237,12 +217,6 @@ class RuleSpecificationBuilder implements RuleSpecificationBuilderInterface
         return $compositeNode;
     }
 
-    /**
-     * @param string $fieldName
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return \Generated\Shared\Transfer\RuleEngineClauseTransfer
-     */
     protected function setClauseField(string $fieldName, RuleEngineClauseTransfer $ruleEngineClauseTransfer): RuleEngineClauseTransfer
     {
         if (strpos($fieldName, '.') !== false) {
@@ -253,41 +227,21 @@ class RuleSpecificationBuilder implements RuleSpecificationBuilderInterface
         return $ruleEngineClauseTransfer->setField(trim($fieldName));
     }
 
-    /**
-     * @param string $value
-     *
-     * @return string
-     */
     protected function clearQuotes(string $value): string
     {
         return str_replace(['"', '\''], '', $value);
     }
 
-    /**
-     * @param string $token
-     *
-     * @return bool
-     */
     protected function isField(string $token): bool
     {
         return $this->metaDataProvider->isFieldAvailable($this->ruleSpecificationProviderPlugin->getRulePlugins(), $token);
     }
 
-    /**
-     * @param string $token
-     *
-     * @return bool
-     */
     protected function isLogicalComparator(string $token): bool
     {
         return $this->comparatorChecker->isLogicalComparator($token);
     }
 
-    /**
-     * @param string $token
-     *
-     * @return bool
-     */
     protected function isComparator(string $token): bool
     {
         if (in_array($token, $this->getCompoundComparatorExpressions(), true)) {
@@ -300,11 +254,6 @@ class RuleSpecificationBuilder implements RuleSpecificationBuilderInterface
         return $this->comparatorChecker->isExistingComparator($ruleEngineClauseTransfer);
     }
 
-    /**
-     * @param string $token
-     *
-     * @return bool
-     */
     protected function isValue(string $token): bool
     {
         $firstSymbol = substr($token, 0, 1);

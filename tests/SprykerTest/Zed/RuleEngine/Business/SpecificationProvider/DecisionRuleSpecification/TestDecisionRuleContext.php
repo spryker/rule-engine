@@ -24,21 +24,12 @@ class TestDecisionRuleContext implements DecisionRuleSpecificationInterface
      */
     protected RuleEngineClauseTransfer $ruleEngineClauseTransfer;
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\DecisionRulePluginInterface $decisionRulePlugin
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     */
     public function __construct(DecisionRulePluginInterface $decisionRulePlugin, RuleEngineClauseTransfer $ruleEngineClauseTransfer)
     {
         $this->decisionRulePlugin = $decisionRulePlugin;
         $this->ruleEngineClauseTransfer = $ruleEngineClauseTransfer;
     }
 
-    /**
-     * @param \Spryker\Shared\Kernel\Transfer\TransferInterface $satisfyingTransfer
-     *
-     * @return bool
-     */
     public function isSatisfiedBy(TransferInterface $satisfyingTransfer): bool
     {
         $this->ruleEngineClauseTransfer->setAcceptedTypes($this->decisionRulePlugin->acceptedDataTypes());

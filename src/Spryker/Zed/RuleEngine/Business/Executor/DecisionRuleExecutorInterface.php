@@ -12,12 +12,6 @@ use Spryker\Shared\Kernel\Transfer\TransferInterface;
 
 interface DecisionRuleExecutorInterface
 {
-    /**
-     * @param \Spryker\Shared\Kernel\Transfer\TransferInterface $satisfyingTransfer
-     * @param \Generated\Shared\Transfer\RuleEngineSpecificationRequestTransfer $ruleEngineSpecificationRequestTransfer
-     *
-     * @return bool
-     */
     public function isSatisfiedBy(
         TransferInterface $satisfyingTransfer,
         RuleEngineSpecificationRequestTransfer $ruleEngineSpecificationRequestTransfer

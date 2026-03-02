@@ -52,9 +52,6 @@ class RuleSpecificationBuilderTest extends Unit
      */
     protected const TEST_FIELD_NAME = 'test-field-name';
 
-    /**
-     * @return void
-     */
     public function testSpecificationBuildSingleClause(): void
     {
         // Arrange
@@ -69,9 +66,6 @@ class RuleSpecificationBuilderTest extends Unit
         $this->assertInstanceOf(RuleSpecificationInterface::class, $ruleSpecification);
     }
 
-    /**
-     * @return void
-     */
     public function testSpecificationBuildMultipleWithBooleanAndShouldReturnAndSpec(): void
     {
         // Arrange
@@ -87,9 +81,6 @@ class RuleSpecificationBuilderTest extends Unit
         $this->assertInstanceOf(TestCollectorAndSpecification::class, $ruleSpecification);
     }
 
-    /**
-     * @return void
-     */
     public function testSpecificationBuildMultipleWithBooleanOrShouldReturnOrSpec(): void
     {
         // Arrange
@@ -105,9 +96,6 @@ class RuleSpecificationBuilderTest extends Unit
         $this->assertInstanceOf(TestCollectorOrSpecification::class, $ruleSpecification);
     }
 
-    /**
-     * @return void
-     */
     public function testSpecificationBuildMultipleParenthesisWithBooleanAndShouldReturnAndSpecs(): void
     {
         // Arrange
@@ -123,9 +111,6 @@ class RuleSpecificationBuilderTest extends Unit
         $this->assertInstanceOf(TestCollectorAndSpecification::class, $ruleSpecification);
     }
 
-    /**
-     * @return void
-     */
     public function testSpecificationBuildThrowsExceptionWhenQueryStringIsIncomplete(): void
     {
         // Arrange
@@ -141,9 +126,6 @@ class RuleSpecificationBuilderTest extends Unit
         $this->createRuleSpecificationBuilder()->build($ruleEngineSpecificationRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testSpecificationBuildThrowsExceptionWhenParenthesisInQueryStringDoNotMatch(): void
     {
         // Arrange
@@ -159,9 +141,6 @@ class RuleSpecificationBuilderTest extends Unit
         $this->createRuleSpecificationBuilder()->build($ruleEngineSpecificationRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testSpecificationBuildThrowsExceptionWhenTokenCanNotBeIdentified(): void
     {
         // Arrange
@@ -177,9 +156,6 @@ class RuleSpecificationBuilderTest extends Unit
         $this->createRuleSpecificationBuilder()->build($ruleEngineSpecificationRequestTransfer);
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Builder\RuleSpecificationBuilderInterface
-     */
     protected function createRuleSpecificationBuilder(): RuleSpecificationBuilderInterface
     {
         return new RuleSpecificationBuilder(
@@ -191,17 +167,11 @@ class RuleSpecificationBuilderTest extends Unit
         );
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Tokenizer\TokenizerInterface
-     */
     protected function createTokenizer(): TokenizerInterface
     {
         return new Tokenizer();
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Resolver\RuleSpecificationProviderResolverInterface
-     */
     protected function createSpecificationProviderResolverMock(): RuleSpecificationProviderResolverInterface
     {
         $specificationProviderResolverMock = $this->getMockBuilder(RuleSpecificationProviderResolverInterface::class)->getMock();
@@ -210,9 +180,6 @@ class RuleSpecificationBuilderTest extends Unit
         return $specificationProviderResolverMock;
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Comparator\ComparatorCheckerInterface
-     */
     protected function createComparatorCheckerMock(): ComparatorCheckerInterface
     {
         $comparatorMock = $this->getMockBuilder(ComparatorCheckerInterface::class)->getMock();
@@ -228,17 +195,11 @@ class RuleSpecificationBuilderTest extends Unit
         return $comparatorMock;
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Validator\ClauseValidatorInterface
-     */
     protected function createClauseValidatorMock(): ClauseValidatorInterface
     {
         return $this->getMockBuilder(ClauseValidatorInterface::class)->getMock();
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Specification\MetaData\MetaDataProviderInterface
-     */
     protected function createMetaDataProviderMock(): MetaDataProviderInterface
     {
         $metaDataProviderMock = $this->getMockBuilder(MetaDataProviderInterface::class)->getMock();
@@ -255,17 +216,11 @@ class RuleSpecificationBuilderTest extends Unit
         return $metaDataProviderMock;
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\RuleSpecificationProviderPluginInterface
-     */
     protected function createTestCollectorRuleSpecificationProviderPlugin(): RuleSpecificationProviderPluginInterface
     {
         return new TestCollectorRuleSpecificationProviderPlugin($this->createCollectorRulePluginMock());
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\CollectorRulePluginInterface
-     */
     protected function createCollectorRulePluginMock(): CollectorRulePluginInterface
     {
         $collectorRulePluginMock = $this->getMockBuilder(CollectorRulePluginInterface::class)->getMock();

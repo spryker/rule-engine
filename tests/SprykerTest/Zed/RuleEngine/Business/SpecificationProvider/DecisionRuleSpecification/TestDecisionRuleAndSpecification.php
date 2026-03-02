@@ -23,10 +23,6 @@ class TestDecisionRuleAndSpecification implements DecisionRuleSpecificationInter
      */
     protected RuleSpecificationInterface $rightNode;
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $leftNode
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface $rightNode
-     */
     public function __construct(
         RuleSpecificationInterface $leftNode,
         RuleSpecificationInterface $rightNode
@@ -35,11 +31,6 @@ class TestDecisionRuleAndSpecification implements DecisionRuleSpecificationInter
         $this->rightNode = $rightNode;
     }
 
-    /**
-     * @param \Spryker\Shared\Kernel\Transfer\TransferInterface $satisfyingTransfer
-     *
-     * @return bool
-     */
     public function isSatisfiedBy(TransferInterface $satisfyingTransfer): bool
     {
         return $this->leftNode->isSatisfiedBy($satisfyingTransfer) && $this->rightNode->isSatisfiedBy($satisfyingTransfer);

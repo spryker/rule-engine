@@ -49,9 +49,6 @@ class CollectTest extends Unit
      */
     protected RuleEngineBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -61,9 +58,6 @@ class CollectTest extends Unit
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsOneCollectedItemsAccordingToProvidedQueryString(): void
     {
         // Arrange
@@ -90,9 +84,6 @@ class CollectTest extends Unit
         $this->assertTrue($this->isItemCollected('123', $collectedItems));
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsTwoCollectedItemsAccordingToProvidedQueryStringWithOrExpression(): void
     {
         // Arrange
@@ -120,9 +111,6 @@ class CollectTest extends Unit
         $this->assertTrue($this->isItemCollected('456', $collectedItems));
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsOneCollectedItemsAccordingToProvidedQueryStringWithAndExpression(): void
     {
         // Arrange
@@ -149,9 +137,6 @@ class CollectTest extends Unit
         $this->assertTrue($this->isItemCollected('456', $collectedItems));
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsEmptyCollectionWhenNoneOfItemsFulfilQuery(): void
     {
         // Arrange
@@ -194,17 +179,11 @@ class CollectTest extends Unit
         return false;
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\RuleSpecificationProviderPluginInterface
-     */
     protected function createCollectorRuleSpecificationProviderPlugin(): RuleSpecificationProviderPluginInterface
     {
         return new TestCollectorRuleSpecificationProviderPlugin($this->createCollectorRulePlugin());
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\CollectorRulePluginInterface
-     */
     protected function createCollectorRulePlugin(): CollectorRulePluginInterface
     {
         return new class () implements CollectorRulePluginInterface {
@@ -226,9 +205,6 @@ class CollectTest extends Unit
                 return $collectedItems;
             }
 
-            /**
-             * @return string
-             */
             public function getFieldName(): string
             {
                 return 'test-field';

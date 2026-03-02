@@ -33,19 +33,11 @@ class QueryStringValidator implements QueryStringValidatorInterface
      */
     protected RuleSpecificationBuilderInterface $specificationBuilder;
 
-    /**
-     * @param \Spryker\Zed\RuleEngine\Business\Builder\RuleSpecificationBuilderInterface $specificationBuilder
-     */
     public function __construct(RuleSpecificationBuilderInterface $specificationBuilder)
     {
         $this->specificationBuilder = $specificationBuilder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineQueryStringValidationRequestTransfer $ruleEngineQueryStringValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\RuleEngineQueryStringValidationResponseTransfer
-     */
     public function validate(
         RuleEngineQueryStringValidationRequestTransfer $ruleEngineQueryStringValidationRequestTransfer
     ): RuleEngineQueryStringValidationResponseTransfer {
@@ -76,13 +68,6 @@ class QueryStringValidator implements QueryStringValidatorInterface
             ->setErrors($errorCollectionTransfer->getErrors());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ErrorCollectionTransfer $errorCollectionTransfer
-     * @param string|int $entityIdentifier
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\ErrorCollectionTransfer
-     */
     protected function addError(
         ErrorCollectionTransfer $errorCollectionTransfer,
         int|string $entityIdentifier,

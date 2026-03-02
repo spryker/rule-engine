@@ -46,29 +46,16 @@ abstract class AbstractCompareOperator implements CompareOperatorInterface
         return static::ALLOW_EMPTY_VALUE || !$this->isEmptyValue($withValue);
     }
 
-    /**
-     * @return string
-     */
     public function getExpression(): string
     {
         return static::EXPRESSION;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return bool
-     */
     public function accept(RuleEngineClauseTransfer $ruleEngineClauseTransfer): bool
     {
         return strcasecmp($ruleEngineClauseTransfer->getOperatorOrFail(), $this->getExpression()) === 0;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return bool
-     */
     protected function isEmptyValue(mixed $value): bool
     {
         return (string)$value === '';

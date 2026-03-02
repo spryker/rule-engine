@@ -24,10 +24,6 @@ class CollectorRuleExecutor implements CollectorRuleExecutorInterface
      */
     protected RuleEngineConfig $ruleEngineConfig;
 
-    /**
-     * @param \Spryker\Zed\RuleEngine\Business\Builder\RuleSpecificationBuilderInterface $specificationBuilder
-     * @param \Spryker\Zed\RuleEngine\RuleEngineConfig $ruleEngineConfig
-     */
     public function __construct(RuleSpecificationBuilderInterface $specificationBuilder, RuleEngineConfig $ruleEngineConfig)
     {
         $this->specificationBuilder = $specificationBuilder;

@@ -34,9 +34,6 @@ class IsInCompareOperatorTest extends Unit
      */
     protected const LIST_DELIMITER = ';';
 
-    /**
-     * @return void
-     */
     public function testAcceptShouldReturnTrueWhenIsInExpressionProvided(): void
     {
         // Arrange
@@ -49,9 +46,6 @@ class IsInCompareOperatorTest extends Unit
         $this->assertTrue($isAccepted);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnTrueWhenValueIsInClause(): void
     {
         // Arrange
@@ -66,9 +60,6 @@ class IsInCompareOperatorTest extends Unit
         $this->assertTrue($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenValueIsNotInClause(): void
     {
         // Arrange
@@ -83,9 +74,6 @@ class IsInCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareWhenNonScalarValueUsedShouldThrowException(): void
     {
         // Assert
@@ -98,9 +86,6 @@ class IsInCompareOperatorTest extends Unit
         $this->createIsInCompareOperator()->compare($ruleEngineClauseTransfer, []);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnTrueWhenAtLeastOneOfProvidedValuesIsInClause(): void
     {
         // Arrange
@@ -116,9 +101,6 @@ class IsInCompareOperatorTest extends Unit
         $this->assertTrue($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenNoOneOfProvidedValuesIsInClause(): void
     {
         // Arrange
@@ -134,9 +116,6 @@ class IsInCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Arrange
@@ -151,9 +130,6 @@ class IsInCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testIsValidValueShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Act
@@ -163,9 +139,6 @@ class IsInCompareOperatorTest extends Unit
         $this->assertFalse($isValidValue);
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Comparator\Operator\IsInCompareOperator
-     */
     protected function createIsInCompareOperator(): IsInCompareOperator
     {
         return new IsInCompareOperator();

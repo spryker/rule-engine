@@ -27,9 +27,6 @@ use Spryker\Zed\RuleEngine\Business\Exception\CompareOperatorException;
  */
 class GreaterCompareOperatorTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testAcceptShouldReturnTrueWhenMoreExpressionProvided(): void
     {
         // Arrange
@@ -42,9 +39,6 @@ class GreaterCompareOperatorTest extends Unit
         $this->assertTrue($isAccepted);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnTrueWhenProvidedValueIsGreaterThanClauseValue(): void
     {
         // Arrange
@@ -57,9 +51,6 @@ class GreaterCompareOperatorTest extends Unit
         $this->assertTrue($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenProvidedValueIsLessThanClauseValue(): void
     {
         // Arrange
@@ -72,9 +63,6 @@ class GreaterCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldThrowExceptionWhenNonNumericValueUsed(): void
     {
         // Assert
@@ -87,9 +75,6 @@ class GreaterCompareOperatorTest extends Unit
         $this->createGreaterCompareOperator()->compare($ruleEngineClauseTransfer, 'as');
     }
 
-    /**
-     * @return void
-     */
     public function testCompareShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Arrange
@@ -102,9 +87,6 @@ class GreaterCompareOperatorTest extends Unit
         $this->assertFalse($isMatching);
     }
 
-    /**
-     * @return void
-     */
     public function testIsValueValidShouldReturnFalseWhenEmptyValueIsProvided(): void
     {
         // Act
@@ -114,9 +96,6 @@ class GreaterCompareOperatorTest extends Unit
         $this->assertFalse($isValueValid);
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Comparator\Operator\GreaterCompareOperator
-     */
     protected function createGreaterCompareOperator(): GreaterCompareOperator
     {
         return new GreaterCompareOperator();

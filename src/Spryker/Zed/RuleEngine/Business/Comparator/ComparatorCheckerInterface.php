@@ -16,11 +16,6 @@ interface ComparatorCheckerInterface
      */
     public function getCompoundComparatorExpressions(): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return bool
-     */
     public function isExistingComparator(RuleEngineClauseTransfer $ruleEngineClauseTransfer): bool;
 
     /**
@@ -32,10 +27,5 @@ interface ComparatorCheckerInterface
      */
     public function isValidComparatorValue(RuleEngineClauseTransfer $ruleEngineClauseTransfer): bool;
 
-    /**
-     * @param string $token
-     *
-     * @return bool
-     */
     public function isLogicalComparator(string $token): bool;
 }

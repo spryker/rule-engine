@@ -12,10 +12,5 @@ use Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleS
 
 interface RuleSpecificationBuilderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineSpecificationRequestTransfer $ruleEngineSpecificationRequestTransfer
-     *
-     * @return \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Specification\RuleSpecificationInterface
-     */
     public function build(RuleEngineSpecificationRequestTransfer $ruleEngineSpecificationRequestTransfer): RuleSpecificationInterface;
 }

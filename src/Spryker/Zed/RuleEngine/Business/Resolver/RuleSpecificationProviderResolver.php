@@ -51,12 +51,6 @@ class RuleSpecificationProviderResolver implements RuleSpecificationProviderReso
         );
     }
 
-    /**
-     * @param \Spryker\Zed\RuleEngineExtension\Communication\Dependency\Plugin\RuleSpecificationProviderPluginInterface $specificationProviderPlugin
-     * @param \Generated\Shared\Transfer\RuleEngineSpecificationProviderRequestTransfer $ruleEngineSpecificationProviderRequestTransfer
-     *
-     * @return bool
-     */
     protected function isPluginApplicable(
         RuleSpecificationProviderPluginInterface $specificationProviderPlugin,
         RuleEngineSpecificationProviderRequestTransfer $ruleEngineSpecificationProviderRequestTransfer

@@ -100,11 +100,6 @@ class Comparator implements ComparatorInterface
         return false;
     }
 
-    /**
-     * @param string $withValue
-     *
-     * @return bool
-     */
     protected function isMatchAllValue(string $withValue): bool
     {
         return $withValue === static::MATCH_ALL_IDENTIFIER;

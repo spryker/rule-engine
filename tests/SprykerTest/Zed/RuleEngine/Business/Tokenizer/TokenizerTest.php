@@ -52,9 +52,6 @@ class TokenizerTest extends Unit
         ];
     }
 
-    /**
-     * @return \Spryker\Zed\RuleEngine\Business\Tokenizer\Tokenizer
-     */
     protected function createTokenizer(): Tokenizer
     {
         return new Tokenizer();

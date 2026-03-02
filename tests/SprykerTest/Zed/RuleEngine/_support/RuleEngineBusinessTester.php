@@ -33,11 +33,6 @@ class RuleEngineBusinessTester extends Actor
 {
     use _generated\RuleEngineBusinessTesterActions;
 
-    /**
-     * @param string $testFieldValue
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\TransferInterface
-     */
     public function createTestItemTransfer(string $testFieldValue): TransferInterface
     {
         return new class ($testFieldValue) extends AbstractTransfer implements TransferInterface {
@@ -46,9 +41,6 @@ class RuleEngineBusinessTester extends Actor
              */
             protected string $testField;
 
-            /**
-             * @param string $testFieldValue
-             */
             public function __construct(string $testFieldValue)
             {
                 parent::__construct();
@@ -56,9 +48,6 @@ class RuleEngineBusinessTester extends Actor
                 $this->testField = $testFieldValue;
             }
 
-            /**
-             * @return string
-             */
             public function getTestField(): string
             {
                 return $this->testField;

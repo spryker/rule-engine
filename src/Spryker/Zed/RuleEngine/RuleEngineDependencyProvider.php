@@ -20,11 +20,6 @@ class RuleEngineDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_RULE_SPECIFICATION_PROVIDER = 'PLUGINS_RULE_SPECIFICATION_PROVIDER';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -33,11 +28,6 @@ class RuleEngineDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addRuleSpecificationProviderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_RULE_SPECIFICATION_PROVIDER, function () {
